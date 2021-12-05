@@ -81,5 +81,4 @@ public class UserService implements UserDetailsService {
     public User getWithPosts(int id) {
         return checkNotFoundWithId(repository.getWithPosts(id), id);
     }
-
 }

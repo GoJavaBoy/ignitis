@@ -1,12 +1,17 @@
 package lt.ignitis.task.service;
 
 import lt.ignitis.task.UserTestData;
+import lt.ignitis.task.model.Role;
 import lt.ignitis.task.model.User;
 import lt.ignitis.task.util.exception.NotFoundException;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataAccessException;
 
+import javax.validation.ConstraintViolationException;
+import java.util.Date;
 import java.util.List;
+import java.util.Set;
 
 import static lt.ignitis.task.UserTestData.*;
 import static org.junit.jupiter.api.Assertions.*;
@@ -52,17 +57,32 @@ class UserServiceTest extends AbstractServiceTest {
 
     @Test
     void update() {
+        User updated = getUpdated();
+        service.update(updated);
+        USER_MATCHER.assertMatch(service.get(USER_ID), getUpdated());
     }
 
     @Test
-    void testUpdate() {
+    void createWithException() {
+        validateRootCause(ConstraintViolationException.class, () -> service.create(new User(null, "  ","password",  Role.USER)));
+        validateRootCause(ConstraintViolationException.class, () -> service.create(new User(null, " test@gmail.com","password", new Date(), Set.of())));
+        validateRootCause(ConstraintViolationException.class, () -> service.create(new User(null, " testgmail.com","password", Role.USER)));
+        validateRootCause(ConstraintViolationException.class, () -> service.create(new User(null, " testgmail.com","pas", Role.USER)));
     }
 
     @Test
-    void loadUserByUsername() {
+    void getNotFound() {
+        assertThrows(NotFoundException.class, () -> service.get(NOT_FOUND));
     }
 
     @Test
-    void getWithPosts() {
+    void deletedNotFound() {
+        assertThrows(NotFoundException.class, () -> service.delete(NOT_FOUND));
+    }
+
+    @Test
+    void duplicateMailCreate() {
+        assertThrows(DataAccessException.class, () ->
+                service.create(new User(null, "user@gmail.com", "newPass", Role.USER)));
     }
 }
