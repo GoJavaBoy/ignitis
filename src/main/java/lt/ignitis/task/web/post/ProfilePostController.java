@@ -33,7 +33,7 @@ public class ProfilePostController extends AbstractPostController{
     }
 
     @GetMapping
-    public List<Post> getAll() {
+    public List<Post> getOwn() {
         int userId = SecurityUtil.authUserId();
         return super.getAllByUserId(userId);
     }
@@ -46,6 +46,7 @@ public class ProfilePostController extends AbstractPostController{
     }
 
     @PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE)
+    @ResponseStatus(HttpStatus.CREATED)
     public ResponseEntity<Post> createWithLocation(@RequestBody Post post) {
         Post created = super.create(post);
 

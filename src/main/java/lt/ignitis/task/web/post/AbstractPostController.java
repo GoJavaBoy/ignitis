@@ -24,6 +24,11 @@ public abstract class AbstractPostController {
         return service.getAllByUserId(userId);
     }
 
+    public List<Post> getAll() {
+        return service.getAll();
+    }
+
+
     public void delete(int id) {
         int userId = SecurityUtil.authUserId();
         service.delete(id, userId);

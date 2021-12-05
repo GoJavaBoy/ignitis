@@ -12,7 +12,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping(value = AdminPostController.REST_URL, produces = MediaType.APPLICATION_JSON_VALUE)
-public class AdminPostController extends AbstractPostController{
+public class AdminPostController extends AbstractPostController {
     static final String REST_URL = "/admin/posts";
 
     @Override
@@ -29,11 +29,15 @@ public class AdminPostController extends AbstractPostController{
     }
 
     @Override
-    @GetMapping("/byUser/{userId}")
+    @GetMapping("/byuser/{userId}")
     public List<Post> getAllByUserId(@PathVariable int userId) {
         return super.getAllByUserId(userId);
     }
 
+    @GetMapping()
+    public List<Post> getAll() {
+        return super.getAll();
+    }
 
     @Override
     @PutMapping(value = "/{id}", consumes = MediaType.APPLICATION_JSON_VALUE)

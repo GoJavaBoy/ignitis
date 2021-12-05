@@ -43,4 +43,9 @@ public class ProfileRestController extends AbstractUserController {
                 .path(REST_URL).build().toUri();
         return ResponseEntity.created(uriOfNewResource).body(created);
     }
+
+    @GetMapping("/with-posts")
+    public User getWithPosts() {
+        return super.getWithPosts(authUserId());
+    }
 }

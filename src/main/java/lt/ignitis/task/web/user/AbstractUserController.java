@@ -51,4 +51,8 @@ public abstract class AbstractUserController {
     public User getByMail(String email) {
         return service.getByEmail(email);
     }
+
+    public User getWithPosts(int id) {
+        return service.getWithPosts(id);
+    }
 }

@@ -57,4 +57,9 @@ public class AdminRestController extends AbstractUserController {
         return super.getByMail(email);
     }
 
+    @Override
+    @GetMapping("/{id}/with-posts")
+    public User getWithPosts(@PathVariable int id) {
+        return super.getWithPosts(id);
+    }
 }
