@@ -9,7 +9,7 @@ import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 
 @Entity
-@Table(name = "posts", uniqueConstraints = {@UniqueConstraint(columnNames = {"user_id", "date_time"}, name = "posts_unique_user_datetime_idx")})
+@Table(name = "posts")
 public class Post extends AbstractBaseEntity {
 
     @Column(name = "title", nullable = false)
