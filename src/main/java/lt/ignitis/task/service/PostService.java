@@ -28,7 +28,7 @@ public class PostService {
     }
 
     public void delete(int id, int userId) {
-        checkNotFoundWithId(postRepository.delete(id, userId), id);
+        checkNotFoundWithId(postRepository.delete(id, userId) != 0, id);
     }
 
     public void deleteByPostId(int id) {

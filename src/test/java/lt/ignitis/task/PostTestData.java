@@ -2,6 +2,8 @@ package lt.ignitis.task;
 
 import lt.ignitis.task.model.Post;
 
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 import static lt.ignitis.task.model.AbstractBaseEntity.START_SEQ;
@@ -27,6 +29,8 @@ public class PostTestData {
     public static final List<Post> user1Posts = List.of(post4, post5);
     public static final List<Post> user2Posts = List.of(post6, post7);
     public static final List<Post> adminPosts = List.of(adminPost1, adminPost2);
+
+    public static final List<Post> allPosts = List.of(post1, post2, post3, post4, post5, post6, post7, adminPost1, adminPost2);
 
     public static Post getNew() {
         return new Post(null, "new post TITLE", "new post TEXT");
