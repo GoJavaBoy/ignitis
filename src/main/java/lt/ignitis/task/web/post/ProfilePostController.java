@@ -5,14 +5,10 @@ import lt.ignitis.task.web.SecurityUtil;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
-import org.springframework.lang.Nullable;
-import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import java.net.URI;
-import java.time.LocalDate;
-import java.time.LocalTime;
 import java.util.List;
 
 @RestController
@@ -33,7 +29,7 @@ public class ProfilePostController extends AbstractPostController{
     }
 
     @GetMapping
-    public List<Post> getOwn() {
+    public List<Post> getAllOwnPosts() {
         int userId = SecurityUtil.authUserId();
         return super.getAllByUserId(userId);
     }

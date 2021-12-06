@@ -14,8 +14,8 @@ import java.net.URI;
 import static lt.ignitis.task.web.SecurityUtil.authUserId;
 
 @RestController
-@RequestMapping(value = ProfileRestController.REST_URL, produces = MediaType.APPLICATION_JSON_VALUE)
-public class ProfileRestController extends AbstractUserController {
+@RequestMapping(value = ProfileController.REST_URL, produces = MediaType.APPLICATION_JSON_VALUE)
+public class ProfileController extends AbstractUserController {
     static final String REST_URL = "/profile";
 
     @GetMapping
@@ -30,7 +30,7 @@ public class ProfileRestController extends AbstractUserController {
     }
 
     @PutMapping(consumes = MediaType.APPLICATION_JSON_VALUE)
-    @ResponseStatus(HttpStatus.OK)
+    @ResponseStatus(HttpStatus.NO_CONTENT)
     public void update(@RequestBody @Valid UserTo userTo) {
         super.update(userTo, authUserId());
     }
