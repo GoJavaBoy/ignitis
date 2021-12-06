@@ -25,7 +25,7 @@
 
     <!--no pooling-->
     <bean id="dataSource"
-          class="org.springframework.jdbc.datasource.DriverManagerDataSource"
+          class="${dataSource.class}"
           p:driverClassName="${database.driverClassName}"
           p:url="${database.url}"
           p:username="${database.username}"
