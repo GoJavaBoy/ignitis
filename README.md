@@ -2,13 +2,13 @@
 
 ## Overview
 ____
-###The main task: 
+### The main task: 
 
 Develop backend part of the "Blog" service where users can
 register, log in, create a simple blog(only text ant title), and delete them.
 ____
 
-###Solution:
+### Solution:
 
 Provided 2 types of users: ***admin*** and ***regular*** user
 - ***Regular*** user can:
@@ -52,7 +52,7 @@ just edit _/resources/db/db.properties_ and _/resources/db/initDB.sql_ files.
 
 ____
 
-###Tech stack:
+### Tech stack:
 - Spring Data JPA
 - Spring Security
 - Spring Web MVC
