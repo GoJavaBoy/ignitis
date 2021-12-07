@@ -19,7 +19,7 @@ public class Post extends AbstractBaseEntity {
 
     @Column(name = "text", nullable = false)
     @NotBlank
-    @Size(min = 2, max = 120)
+    @Size(min = 2, max = 255)
     private String text;
 
     @ManyToOne(fetch = FetchType.LAZY)
