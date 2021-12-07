@@ -111,6 +111,6 @@
 
 <!--    Add test data to DB-->
     <changeSet id="test_data_inserts" author="stasis">
-        <sqlFile path="populateDB.sql" />
+        <sqlFile path="populateDB.sql" relativeToChangelogFile="true"/>
     </changeSet>
 </databaseChangeLog>

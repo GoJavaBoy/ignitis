@@ -26,11 +26,11 @@
 
     <context:component-scan base-package="lt.ignitis.task.**.web"/>
 
-    <!-- Need this for Swagger -->
-<!--    <mvc:resources mapping="/webjars/**" location="classpath:/META-INF/resources/webjars/"/>-->
+<!--     Need this for Swagger-->
+    <mvc:resources mapping="/webjars/**" location="classpath:/META-INF/resources/webjars/"/>
 
-    <!--  Swagger2  https://medium.com/@andreymamontov/swagger-2-configuration-with-spring-xml-3cd643a12425 -->
-<!--    <bean class="springfox.documentation.swagger2.configuration.Swagger2DocumentationConfiguration"/>-->
-<!--    <mvc:resources mapping="swagger-ui.html" location="classpath:/META-INF/resources/" />-->
+<!--      Swagger2  https://medium.com/@andreymamontov/swagger-2-configuration-with-spring-xml-3cd643a12425-->
+    <bean class="springfox.documentation.swagger2.configuration.Swagger2DocumentationConfiguration"/>
+    <mvc:resources mapping="swagger-ui.html" location="classpath:/META-INF/resources/" />
 
 </beans>
