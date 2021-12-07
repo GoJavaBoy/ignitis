@@ -108,4 +108,9 @@
                                  referencedTableName="users"
                                  validate="true"/>
     </changeSet>
+
+<!--    Add test data to DB-->
+    <changeSet id="test_data_inserts" author="stasis">
+        <sqlFile path="populateDB.sql" />
+    </changeSet>
 </databaseChangeLog>
